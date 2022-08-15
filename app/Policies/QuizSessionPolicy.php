@@ -16,13 +16,15 @@ class QuizSessionPolicy
      *
      * @param \App\Models\User $user
      * @param \App\Models\Quiz $quiz
-     * @return bool
+     * @return bool|null
      */
-    public function create(User $user, Quiz $quiz): bool
+    public function create(User $user, Quiz $quiz): ?bool
     {
         if (!$quiz->isPrivate() || $quiz->user_id === $user->id) {
             return true;
         }
+
+        return null;
     }
 
     /**
@@ -30,13 +32,15 @@ class QuizSessionPolicy
      *
      * @param \App\Models\User $user
      * @param \App\Models\QuizSession $session
-     * @return bool
+     * @return bool|null
      */
-    public function view(User $user, QuizSession $session): bool
+    public function view(User $user, QuizSession $session): ?bool
     {
         if ($session->user_id === $user->id) {
             return true;
         }
+
+        return null;
     }
 
     /**
@@ -44,12 +48,14 @@ class QuizSessionPolicy
      *
      * @param \App\Models\User $user
      * @param \App\Models\QuizSession $session
-     * @return bool|void
+     * @return bool|null
      */
-    public function answer(User $user, QuizSession $session)
+    public function answer(User $user, QuizSession $session): ?bool
     {
         if ($session->user_id === $user->id) {
             return true;
         }
+
+        return null;
     }
 }

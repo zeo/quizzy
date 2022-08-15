@@ -15,26 +15,30 @@ class QuizPolicy
      *
      * @param \App\Models\User $user
      * @param \App\Models\Quiz $quiz
-     * @return bool
+     * @return bool|null
      */
-    public function update(User $user, Quiz $quiz): bool
+    public function update(User $user, Quiz $quiz): ?bool
     {
         if ($quiz->user_id === $user->id) {
             return true;
         }
+
+        return null;
     }
 
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Quiz  $quiz
-     * @return bool
+     * @param \App\Models\User $user
+     * @param \App\Models\Quiz $quiz
+     * @return bool|null
      */
-    public function delete(User $user, Quiz $quiz): bool
+    public function delete(User $user, Quiz $quiz): ?bool
     {
         if ($quiz->user_id === $user->id) {
             return true;
         }
+
+        return null;
     }
 }

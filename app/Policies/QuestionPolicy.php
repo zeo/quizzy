@@ -11,11 +11,20 @@ class QuestionPolicy
 {
     use HandlesAuthorization;
 
-    public function create(User $user, Quiz $quiz): bool
+    /**
+     * Determine whether the user can create an instance of the model.
+     *
+     * @param \App\Models\User $user
+     * @param \App\Models\Quiz $quiz
+     * @return bool|null
+     */
+    public function create(User $user, Quiz $quiz): ?bool
     {
         if ($quiz->user_id === $user->id) {
             return true;
         }
+
+        return null;
     }
 
     /**
@@ -24,13 +33,15 @@ class QuestionPolicy
      * @param \App\Models\User $user
      * @param \App\Models\Question $question
      * @param \App\Models\Quiz $quiz
-     * @return bool
+     * @return bool|null
      */
-    public function update(User $user, Question $question, Quiz $quiz): bool
+    public function update(User $user, Question $question, Quiz $quiz): ?bool
     {
         if ($quiz->user_id === $user->id) {
             return true;
         }
+
+        return null;
     }
 
     /**
@@ -39,12 +50,14 @@ class QuestionPolicy
      * @param \App\Models\User $user
      * @param \App\Models\Question $question
      * @param \App\Models\Quiz $quiz
-     * @return bool
+     * @return bool|null
      */
-    public function delete(User $user, Question $question, Quiz $quiz): bool
+    public function delete(User $user, Question $question, Quiz $quiz): ?bool
     {
         if ($quiz->user_id === $user->id) {
             return true;
         }
+
+        return null;
     }
 }

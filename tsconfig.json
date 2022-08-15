@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "target": "es5",
+        "strict": true,
+        "jsx": "preserve",
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "lib": ["esnext", "dom"],
+        "types": ["vite/client"],
+        "baseUrl": "./resources/js",
+        "paths": {
+            "@/*": ["*"]
+        }
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

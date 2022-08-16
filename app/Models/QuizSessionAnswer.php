@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/**
- * @mixin IdeHelperQuizSessionAnswer
- */
 class QuizSessionAnswer extends Model
 {
     use HasFactory, HasUuidKey;

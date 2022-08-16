@@ -4,7 +4,6 @@ namespace App\Http\Requests\Dashboard;
 
 use App\Enums\QuizVisibility;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Enum;
 
 class CreateQuizRequest extends FormRequest
 {
